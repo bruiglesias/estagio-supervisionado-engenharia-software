@@ -15,6 +15,10 @@ export class CreateAluno1622401347613 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "id_curso",
+                        type: "integer",
+                    },
+                    {
                         name: "matricula",
                         type: "varchar",
                     },
@@ -34,6 +38,16 @@ export class CreateAluno1622401347613 implements MigrationInterface {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"
+                    }
+                ],
+                foreignKeys:[
+                    {
+                        name: "FKCurso",
+                        referencedTableName: "curso",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["id_curso"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })

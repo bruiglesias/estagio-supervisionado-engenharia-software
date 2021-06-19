@@ -1,0 +1,41 @@
+.
+├── arvore.txt
+├── controllers
+│   └── UserController.ts
+├── database
+│   ├── database.sqlite
+│   ├── index.ts
+│   └── migrations
+│       ├── 1622238609704-CreateUsers.ts
+│       ├── 1622401257914-CreateCurso.ts
+│       ├── 1622401278405-CreateAdministrador.ts
+│       ├── 1622401302015-CreateCoordenador.ts
+│       ├── 1622401347613-CreateAluno.ts
+│       ├── 1622401374186-CreateSolicitacao.ts
+│       ├── 1622401386967-CreateAnexo.ts
+│       ├── 1622401395641-CreateDisciplina.ts
+│       └── 1622401405732-CreateRecurso.ts
+├── models
+│   ├── Administrador.ts
+│   ├── Aluno.ts
+│   ├── Anexo.ts
+│   ├── Coordenador.ts
+│   ├── Curso.ts
+│   ├── Disciplina.ts
+│   ├── Recurso.ts
+│   ├── Solicitacao.ts
+│   └── User.ts
+├── repositories
+│   ├── AdministradorRepository.ts
+│   ├── AlunoRepository.ts
+│   ├── AnexoRepository.ts
+│   ├── CoordenadorRepository.ts
+│   ├── CursoRepository.ts
+│   ├── DisciplinaRepository.ts
+│   ├── RecursoRepository.ts
+│   ├── SolicitacaoRepository.ts
+│   └── UserRepository.ts
+├── routes.ts
+└── server.ts
+
+5 directories, 33 files

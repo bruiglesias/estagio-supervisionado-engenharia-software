@@ -15,6 +15,10 @@ export class CreateDisciplina1622401395641 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "id_solicitacao",
+                        type: "integer",
+                    },
+                    {
                         name: "disciplina",
                         type: "varchar",
                     },
@@ -34,6 +38,16 @@ export class CreateDisciplina1622401395641 implements MigrationInterface {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"
+                    }
+                ],
+                foreignKeys:[
+                    {
+                        name: "FKSolicitacao",
+                        referencedTableName: "solicitacao",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["id_solicitacao"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })

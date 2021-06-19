@@ -15,6 +15,10 @@ export class CreateSolicitacao1622401374186 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "id_aluno",
+                        type: "integer",
+                    },
+                    {
                         name: "justificativa",
                         type: "longtext",
                     },
@@ -31,6 +35,16 @@ export class CreateSolicitacao1622401374186 implements MigrationInterface {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"
+                    }
+                ],
+                foreignKeys:[
+                    {
+                        name: "FKAluno",
+                        referencedTableName: "aluno",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["id_aluno"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })

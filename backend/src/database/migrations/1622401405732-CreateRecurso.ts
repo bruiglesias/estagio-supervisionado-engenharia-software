@@ -15,6 +15,14 @@ export class CreateRecurso1622401405732 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "justificativa",
+                        type: "longtext",
+                    },
+                    {
+                        name: "status",
+                        type: "varchar",
+                    },
+                    {
                         name: "data_recurso",
                         type: "timestamp",
                     },

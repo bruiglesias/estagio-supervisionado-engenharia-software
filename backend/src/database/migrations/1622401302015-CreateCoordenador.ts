@@ -15,6 +15,10 @@ export class CreateCoordenador1622401302015 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "id_curso",
+                        type: "integer",
+                    },
+                    {
                         name: "nome",
                         type: "varchar",
                     },
@@ -30,6 +34,16 @@ export class CreateCoordenador1622401302015 implements MigrationInterface {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"
+                    }
+                ],
+                foreignKeys:[
+                    {
+                        name: "FKCurso",
+                        referencedTableName: "curso",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["id_curso"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })

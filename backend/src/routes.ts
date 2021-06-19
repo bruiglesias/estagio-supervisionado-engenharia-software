@@ -11,6 +11,7 @@ const userController = new UserController();
 // PATCH => Alteração específica
 
 router.post("/users", userController.create)
+router.get("/users", userController.show)
 
 export { router }
 
