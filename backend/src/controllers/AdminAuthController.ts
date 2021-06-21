@@ -35,7 +35,7 @@ class AdminAuthController{
             if (senhaValidada) {
                 const token = jwtController.createToken(administrador)
                 administrador.senha = null
-                response.status(200).json({ auth: true, toke: token, administrador: administrador })
+                response.status(200).json({ auth: true, token: token, administrador: administrador })
             } else {
                 response.status(400).json({ error: "Senha inválida" })
             }
