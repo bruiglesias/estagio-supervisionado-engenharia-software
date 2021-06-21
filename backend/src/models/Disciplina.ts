@@ -6,6 +6,9 @@ class Disciplina{
     id: number
 
     @Column()
+    id_solicitacao: number
+
+    @Column()
     disciplina: string
 
     @Column()

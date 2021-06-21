@@ -1,7 +1,10 @@
 .
 ├── arvore.txt
 ├── controllers
-│   └── UserController.ts
+│   ├── AdminAuthController.ts
+│   ├── CoordenadorController.ts
+│   ├── CursoController.ts
+│   └── JWTController.ts
 ├── database
 │   ├── database.sqlite
 │   ├── index.ts
@@ -23,8 +26,7 @@
 │   ├── Curso.ts
 │   ├── Disciplina.ts
 │   ├── Recurso.ts
-│   ├── Solicitacao.ts
-│   └── User.ts
+│   └── Solicitacao.ts
 ├── repositories
 │   ├── AdministradorRepository.ts
 │   ├── AlunoRepository.ts
@@ -38,4 +40,4 @@
 ├── routes.ts
 └── server.ts
 
-5 directories, 33 files
+5 directories, 35 files

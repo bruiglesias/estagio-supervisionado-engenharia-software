@@ -6,6 +6,12 @@ class Anexo{
     id: number
 
     @Column()
+    id_solicitacao: number
+
+    @Column()
+    id_recurso: number
+
+    @Column()
     caminho: string
     
     @CreateDateColumn()

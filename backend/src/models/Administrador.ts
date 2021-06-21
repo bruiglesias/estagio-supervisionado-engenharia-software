@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import * as bcrypt from 'bcrypt';
 
 @Entity("administrador")
 class Administrador{
@@ -16,6 +17,11 @@ class Administrador{
     
     @CreateDateColumn()
     criado_em: Date
+
+    @BeforeInsert()
+    async generatePasswordHash(): Promise<void> {
+      this.senha = await bcrypt.hashSync(this.senha, bcrypt.genSaltSync(10));
+    }
 }
 
 export { Administrador }

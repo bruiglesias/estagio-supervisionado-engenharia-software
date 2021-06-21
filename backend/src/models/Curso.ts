@@ -8,9 +8,6 @@ class Curso{
     @Column()
     nome: string
     
-    @Column()
-    email: string
-    
     @CreateDateColumn()
     criado_em: Date
 }

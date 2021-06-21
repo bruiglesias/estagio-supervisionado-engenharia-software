@@ -15,6 +15,10 @@ export class CreateRecurso1622401405732 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
+                        name: "id_aluno",
+                        type: "integer",
+                    },
+                    {
                         name: "justificativa",
                         type: "longtext",
                     },
@@ -30,6 +34,16 @@ export class CreateRecurso1622401405732 implements MigrationInterface {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"
+                    }
+                ],
+                foreignKeys:[
+                    {
+                        name: "FKAluno",
+                        referencedTableName: "aluno",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["id_aluno"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })

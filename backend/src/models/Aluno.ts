@@ -6,6 +6,9 @@ class Aluno{
     id: number
 
     @Column()
+    id_curso: number
+
+    @Column()
     matricula: string
 
     @Column()

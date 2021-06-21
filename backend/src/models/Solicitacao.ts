@@ -6,6 +6,9 @@ class Solicitacao{
     id: number
 
     @Column()
+    id_aluno: number
+
+    @Column()
     justificativa: string
 
     @Column()
