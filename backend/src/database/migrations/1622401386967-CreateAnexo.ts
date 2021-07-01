@@ -17,10 +17,12 @@ export class CreateAnexo1622401386967 implements MigrationInterface {
                     {
                         name: "id_solicitacao",
                         type: "integer",
+                        isNullable: true,
                     },
                     {
                         name: "id_recurso",
                         type: "integer",
+                        isNullable: true,
                     },
                     {
                         name: "caminho",

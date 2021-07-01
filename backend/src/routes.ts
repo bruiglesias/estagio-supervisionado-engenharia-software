@@ -3,24 +3,22 @@ import { AdminAuthController } from './controllers/AdminAuthController'
 import { JWTController } from './controllers/JWTController';
 import { CoordenadorController } from './controllers/CoordenadorController';
 import { CursoController } from './controllers/CursoController';
+import { SolicitacaoController } from './controllers/SolicitacaoController';
+import multer from 'multer';
+import * as multerConfig from './config/multer'
+
+const upload = multer(multerConfig);
 
 const router = Router()
 const adminAuthController = new AdminAuthController()
 const coordenadorController = new CoordenadorController()
 const cursoController = new CursoController()
-
+const solicitacaoController = new SolicitacaoController()
 const jwtController = new JWTController()
-
-// GET => Buscar
-// POST => Salvar
-// PUT => Alterar
-// DELETE => Deletar
-// PATCH => Alteração específica
 
 // ROTAS ADMINISTRADOR
 router.post('/admin/auth/create', adminAuthController.create)
 router.post('/admin/auth/login', adminAuthController.login)
-
 
 // ROTAS CURSO
 router.post('/curso/create', jwtController.verifyToken, cursoController.create)
@@ -35,3 +33,5 @@ router.post('/coord/find/id', jwtController.verifyToken, coordenadorController.f
 router.post('/coord/find/name', jwtController.verifyToken, coordenadorController.findByName)
 export { router }
 
+// ROTAS SOLICITAÇÃO
+router.post('/solicitacao/create',upload.array('image'), solicitacaoController.create)

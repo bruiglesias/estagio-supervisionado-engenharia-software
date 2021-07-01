@@ -38,6 +38,7 @@ class CoordenadorController{
         if(!coordenador){
             return response.status(400).json({ error: "Coordenador não encontrado"})
         }
+        coordenador.senha = null
         return response.status(200).json(coordenador) 
     }
 
@@ -47,10 +48,33 @@ class CoordenadorController{
         const coordenador = await coordenadorRepository.findOne({ nome })
 
         if(!coordenador){
-            return response.status(400).json({ error: "O Curso não existe"})
+            return response.status(400).json({ error: "Coordenador não encontrado"})
         }
+        coordenador.senha = null
         return response.status(200).json(coordenador) 
     } 
+
+    async login(request: Request, response:Response){
+        const { usuario, senha } = request.body
+        const coordenadorRepository = getCustomRepository(CoordenadorRepository)
+
+        const coordenador = await coordenadorRepository.findOne({ usuario: usuario })
+        if (coordenador) {
+
+            const senhaValidada = await bcrypt.compare(senha, coordenador.senha)
+            
+            if (senhaValidada) {
+                const token = jwtController.createToken(coordenador)
+                coordenador.senha = null
+                response.status(200).json({ auth: true, token: token, coordenador: coordenador })
+            } else {
+                response.status(400).json({ error: "Senha inválida" })
+            }
+
+        } else {
+            response.status(401).json({ error: "Usuário não existe" })
+        }
+    }
 }
 
 export { CoordenadorController }
