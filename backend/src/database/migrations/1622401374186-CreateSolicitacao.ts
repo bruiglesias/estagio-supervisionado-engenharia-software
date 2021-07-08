@@ -27,11 +27,6 @@ export class CreateSolicitacao1622401374186 implements MigrationInterface {
                         type: "varchar",
                     },
                     {
-                        name: "data_solicitacao",
-                        type: "timestamp",
-                        default: "now()"
-                    },
-                    {
                         name: "criado_em",
                         type: "timestamp",
                         default: "now()"

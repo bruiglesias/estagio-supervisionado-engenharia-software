@@ -33,7 +33,7 @@ class SolicitacaoController{
         const solicitacaoRepository = getCustomRepository(SolicitacaoRepository)
         const disciplinaRepository = getCustomRepository(DisciplinaRepository)
         
-
+ 
         const anexoRepository = getCustomRepository(AnexoRepository)
 
         if(alunoAlreadyExists){
@@ -54,7 +54,7 @@ class SolicitacaoController{
                 professor: professor,
                 disciplina: disciplina,
             })
-
+            console.log(registro_disciplina)
             await disciplinaRepository.save(registro_disciplina)
 
             const arquivos = request.files
@@ -104,6 +104,17 @@ class SolicitacaoController{
             const anexos = (await anexoRepository.createQueryBuilder().insert().values(files).execute())
             return response.status(200).json({ ...aluno, ...solicitacao, ...registro_disciplina, anexos_ids: anexos.generatedMaps})               
         }
+    }
+
+    async search(request: Request, response: Response){
+        const { id } = request.body
+
+        const solicitacaoRepository = getCustomRepository(SolicitacaoRepository)
+        
+        const solicitacao = await solicitacaoRepository.findOne({ id: id })
+        const disciplinaRepository = getCustomRepository(DisciplinaRepository)
+        const disciplina = await disciplinaRepository.findOne({ id_solicitacao: id })
+        return response.status(200).json({...solicitacao, ...disciplina})   
     }
 
 }

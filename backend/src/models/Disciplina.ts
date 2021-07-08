@@ -17,8 +17,8 @@ class Disciplina{
     @Column()
     professor: string
     
-    @CreateDateColumn()
-    data_atividade: Date
+    @Column()
+    data_atividade: string
 
     @CreateDateColumn()
     criado_em: Date

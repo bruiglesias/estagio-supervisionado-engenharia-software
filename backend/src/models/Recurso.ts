@@ -4,15 +4,12 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeor
 class Recurso{
     @PrimaryGeneratedColumn('increment')
     id: number
+
+    @Column()
+    id_solicitacao: number
     
     @Column()
     justificativa: string
-
-    @Column()
-    status: string
-
-    @CreateDateColumn()
-    data_recurso: Date
 
     @CreateDateColumn()
     criado_em: Date

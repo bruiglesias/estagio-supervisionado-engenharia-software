@@ -4,6 +4,7 @@ import { JWTController } from './controllers/JWTController';
 import { CoordenadorController } from './controllers/CoordenadorController';
 import { CursoController } from './controllers/CursoController';
 import { SolicitacaoController } from './controllers/SolicitacaoController';
+import { RecursoController } from './controllers/RecursoController';
 import multer from 'multer';
 import * as multerConfig from './config/multer'
 
@@ -14,6 +15,7 @@ const adminAuthController = new AdminAuthController()
 const coordenadorController = new CoordenadorController()
 const cursoController = new CursoController()
 const solicitacaoController = new SolicitacaoController()
+const recursoController = new RecursoController()
 const jwtController = new JWTController()
 
 // ROTAS ADMINISTRADOR
@@ -35,3 +37,7 @@ export { router }
 
 // ROTAS SOLICITAÇÃO
 router.post('/solicitacao/create',upload.array('image'), solicitacaoController.create)
+router.post('/solicitacao/search', solicitacaoController.search)
+
+// ROTAS RECURSO
+router.post('/recurso/create',upload.array('image'),  recursoController.create)

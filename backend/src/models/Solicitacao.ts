@@ -13,12 +13,9 @@ class Solicitacao{
 
     @Column()
     status: string
-
-    @CreateDateColumn()
-    data_solicitacao: Date
-    
+   
     @CreateDateColumn()
     criado_em: Date
 }
 
-export { Solicitacao }
+export { Solicitacao } 

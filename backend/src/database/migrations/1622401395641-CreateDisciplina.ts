@@ -32,7 +32,7 @@ export class CreateDisciplina1622401395641 implements MigrationInterface {
                     },
                     {
                         name: "data_atividade",
-                        type: "timestamp",
+                        type: "varchar",
                     },
                     {
                         name: "criado_em",

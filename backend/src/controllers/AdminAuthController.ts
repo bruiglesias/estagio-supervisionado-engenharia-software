@@ -17,7 +17,8 @@ class AdminAuthController{
         if(administradorAlreadyExists){
             return response.status(400).json({ error: "O usuário já existe"})
         }
-        const administrador = administradorRepository.create({ nome, usuario, senha })
+        const senha_string = String(senha)
+        const administrador = administradorRepository.create({ nome, usuario, senha:senha_string })
         await administradorRepository.save(administrador)
         administrador.senha = null
         return response.json(administrador)
@@ -29,8 +30,8 @@ class AdminAuthController{
 
         const administrador = await administradorRepository.findOne({ usuario: usuario })
         if (administrador) {
-
-            const senhaValidada = await bcrypt.compare(senha, administrador.senha)
+            const senha_string = String(senha)
+            const senhaValidada = await bcrypt.compare(senha_string, administrador.senha)
             
             if (senhaValidada) {
                 const token = jwtController.createToken(administrador)

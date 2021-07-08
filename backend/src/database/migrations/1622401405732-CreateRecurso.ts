@@ -15,20 +15,12 @@ export class CreateRecurso1622401405732 implements MigrationInterface {
                         isPrimary: true 
                     },
                     {
-                        name: "id_aluno",
+                        name: "id_solicitacao",
                         type: "integer",
                     },
                     {
                         name: "justificativa",
                         type: "longtext",
-                    },
-                    {
-                        name: "status",
-                        type: "varchar",
-                    },
-                    {
-                        name: "data_recurso",
-                        type: "timestamp",
                     },
                     {
                         name: "criado_em",
@@ -38,10 +30,10 @@ export class CreateRecurso1622401405732 implements MigrationInterface {
                 ],
                 foreignKeys:[
                     {
-                        name: "FKAluno",
-                        referencedTableName: "aluno",
+                        name: "FKSolicitacao",
+                        referencedTableName: "solicitacao",
                         referencedColumnNames: ["id"],
-                        columnNames: ["id_aluno"],
+                        columnNames: ["id_solicitacao"],
                         onDelete: "CASCADE",
                         onUpdate: "CASCADE"
                     }
