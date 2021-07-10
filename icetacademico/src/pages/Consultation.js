@@ -11,40 +11,7 @@ import api from '../address/api'
 
 export default function Consultation({ navigation }) {
 
-    const [buttons, setButtons] = useState([
-        {
-            id: 1,
-            disciplina: "Fábrica de software",
-            tipo: "Justificar ausência",
-            anexos: 2,
-            status: 'Em análise',
-            data_atividade: '30/10/1991'
-        },
-        {
-            id: 2,
-            disciplina: "Fábrica de software",
-            tipo: "Justificar ausência",
-            anexos: 2,
-            status: 'Em análise',
-            data_atividade: '30/10/1991'
-        },
-        {
-            id: 3,
-            disciplina: "Fábrica de software",
-            tipo: "Justificar ausência",
-            anexos: 2,
-            status: 'Em análise',
-            data_atividade: '30/10/1991'
-        },
-        {
-            id: 4,
-            disciplina: "Fábrica de software",
-            tipo: "Justificar ausência",
-            anexos: 2,
-            status: 'Em análise',
-            data_atividade: '30/10/1991'
-        },
-    ])
+    const [buttons, setButtons] = useState([])
 
     const [loading, setLoading] = useState(true);
 
